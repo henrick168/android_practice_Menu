@@ -3,6 +3,8 @@ package com.example.leo.mypracticemenu;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         //程式碼，方式定義選單
 //        menu.add(0,MENU_SETTING,100,R.string.action_about)
 //            .setIcon(R.drawable.ic_action_about);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     //每次執行Menu選單，會執行一次
@@ -31,4 +33,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         return super.onPrepareOptionsMenu(menu);
     }*/
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_about:
+                Toast.makeText(MainActivity.this, "關於..", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_close:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
