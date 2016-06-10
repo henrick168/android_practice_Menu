@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_about:
                 setOptionsDialog();
                 break;
@@ -50,11 +50,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_navi_railway:
                 setOptionsNavigation();
                 break;
+            case R.id.action_dial:
+                setOptionsDial();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    protected void setOptionsDialog(){
+    protected void setOptionsDialog() {
         // 使用匿名的實體
         // 當運行完Dialog後，系統會自行回收這個匿名實體所佔用的記憶體空間。
         new AlertDialog.Builder(this)
@@ -62,19 +65,27 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle(R.string.action_about)
                 .setMessage(R.string.action_dialog_message)
                 .setCancelable(false)
-                .setPositiveButton(R.string.action_dialog_close,null)
+                .setPositiveButton(R.string.action_dialog_close, null)
                 .setNegativeButton(R.string.label_homepage, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Uri uri = Uri.parse("https://github.com/henrick168/android_practice_Menu");
-                        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     }
                 })
                 .show();
     }
-    protected void setOptionsNavigation(){
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:25.047192, 121.516981"));
+
+    protected void setOptionsNavigation() {
+        // ?z=16 , 指定縮放程度
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:25.047192, 121.516981?z=16"));
+        startActivity(intent);
+    }
+
+    protected void setOptionsDial() {
+        Uri uri = Uri.parse("tel:123");
+        Intent intent = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(intent);
     }
 }

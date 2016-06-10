@@ -11,6 +11,10 @@
         android:title="@string/action_navi_railway"
         android:icon="@drawable/ic_action_map"
         android:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_dial"
+        android:title="@string/action_dial"
+        android:icon="@drawable/ic_action_dial"
+        android:showAsAction="ifRoom"/>
     <item android:id="@+id/action_close"
         android:icon="@drawable/ic_action_close"
         android:title="@string/action_close"
