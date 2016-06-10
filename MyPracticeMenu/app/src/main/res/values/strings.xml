@@ -2,4 +2,6 @@
     <string name="app_name">MyPracticeMenu</string>
     <string name="action_about">關於</string>
     <string name="action_close">結束</string>
+    <string name="action_dialog_message">實作與練習 Menu 和 Dialog 功能!!</string>
+    <string name="action_dialog_close">關閉</string>
 </resources>

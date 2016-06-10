@@ -1,5 +1,6 @@
 package com.example.leo.mypracticemenu;
 
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,12 +39,24 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_about:
-                Toast.makeText(MainActivity.this, "關於..", Toast.LENGTH_SHORT).show();
+                setOptionsDialog();
                 break;
             case R.id.action_close:
                 finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void setOptionsDialog(){
+        // 使用匿名的實體
+        // 當運行完Dialog後，系統會自行回收這個匿名實體所佔用的記憶體空間。
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.ic_action_about_blue)
+                .setTitle(R.string.action_about)
+                .setMessage(R.string.action_dialog_message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.action_dialog_close,null)
+                .show();
     }
 }
