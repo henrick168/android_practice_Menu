@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_close:
                 finish();
                 break;
+            case R.id.action_navi_railway:
+                setOptionsNavigation();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -69,5 +72,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+    protected void setOptionsNavigation(){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:25.047192, 121.516981"));
+        startActivity(intent);
     }
 }
