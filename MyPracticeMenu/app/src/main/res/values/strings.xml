@@ -4,4 +4,5 @@
     <string name="action_close">結束</string>
     <string name="action_dialog_message">實作與練習 Menu 和 Dialog 功能!!</string>
     <string name="action_dialog_close">關閉</string>
+    <string name="label_homepage">回首頁</string>
 </resources>

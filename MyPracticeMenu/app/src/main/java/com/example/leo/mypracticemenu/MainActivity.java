@@ -1,6 +1,9 @@
 package com.example.leo.mypracticemenu;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -57,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage(R.string.action_dialog_message)
                 .setCancelable(false)
                 .setPositiveButton(R.string.action_dialog_close,null)
+                .setNegativeButton(R.string.label_homepage, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Uri uri = Uri.parse("https://github.com/henrick168/android_practice_Menu");
+                        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                        startActivity(intent);
+                    }
+                })
                 .show();
     }
 }
