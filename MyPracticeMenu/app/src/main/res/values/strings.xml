@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyPracticeMenu</string>
+    <string name="action_about">關於</string>
+    <string name="action_close">結束</string>
+</resources>
