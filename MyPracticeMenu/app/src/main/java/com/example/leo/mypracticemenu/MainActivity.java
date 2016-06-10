@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.label_homepage, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Uri uri = Uri.parse("https://github.com/henrick168/android_practice_Menu");
+                        Uri uri = Uri.parse(getString(R.string.uri_homepage));
                         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     }
@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
     protected void setOptionsNavigation() {
         // ?z=16 , 指定縮放程度
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:25.047192, 121.516981?z=16"));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.uri_railway)));
         startActivity(intent);
     }
 
     protected void setOptionsDial() {
-        Uri uri = Uri.parse("tel:123");
+        Uri uri = Uri.parse(getString(R.string.uri_dial));
         Intent intent = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(intent);
     }
