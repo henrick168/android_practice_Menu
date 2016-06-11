@@ -27,6 +27,42 @@ public class MainActivity extends AppCompatActivity {
         if(debug.On) Log.d(TAG, "onCreate");
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if(debug.On) Log.d(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(debug.On) Log.d(TAG, "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(debug.On) Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(debug.On) Log.d(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(debug.On) Log.d(TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(debug.On) Log.d(TAG, "onDestroy");
+    }
+
     protected static final int MENU_SETTING = Menu.FIRST;
 
     // 只有在讀入Activity時會被執行一次
