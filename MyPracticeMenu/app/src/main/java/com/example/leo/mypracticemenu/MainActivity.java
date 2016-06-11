@@ -11,16 +11,20 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "myLog";
+    Debug debug ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        debug = new Debug();
+        if(debug.On) Log.d(TAG, "onCreate");
     }
 
     protected static final int MENU_SETTING = Menu.FIRST;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //XML，方式定義選單
+        if(debug.On) Log.d(TAG, "onCreateOptionsMenu");
         getMenuInflater().inflate(R.menu.menu, menu);
 
         //程式碼，方式定義選單
@@ -45,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(debug.On) Log.d(TAG, "onOptionsItemSelected");
         switch (item.getItemId()) {
             case R.id.action_about:
                 setOptionsDialog();
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void setOptionsDialog() {
+        if(debug.On) Log.d(TAG, "setOptionsDialog");
         // 使用匿名的實體
         // 當運行完Dialog後，系統會自行回收這個匿名實體所佔用的記憶體空間。
         new AlertDialog.Builder(this)
@@ -86,18 +93,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void setOptionsNavigation() {
+        if(debug.On) Log.d(TAG, "setOptionsNavigation");
         // ?z=16 , 指定縮放程度
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.uri_railway)));
         startActivity(intent);
     }
 
     protected void setOptionsDial() {
+        if(debug.On) Log.d(TAG, "setOptionsDial");
         Uri uri = Uri.parse(getString(R.string.uri_dial));
         Intent intent = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(intent);
     }
 
     protected void sendNotification() {
+        if(debug.On) Log.d(TAG, "sendNotification");
         NotificationManager barManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 //         改用Notification.Builder
