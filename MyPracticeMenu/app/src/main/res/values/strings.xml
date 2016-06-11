@@ -7,6 +7,7 @@
     <string name="label_homepage">回首頁</string>
     <string name="action_navi_railway">導航台北火車站</string>
     <string name="action_dial">撥打123</string>
+    <string name="action_notification">彈出狀態欄訊息</string>
     <string name="uri_homepage">https://github.com/henrick168/android_practice_Menu</string>
     <string name="uri_railway">geo:25.047192, 121.516981?z=16</string>
     <string name="uri_dial">tel:123</string>

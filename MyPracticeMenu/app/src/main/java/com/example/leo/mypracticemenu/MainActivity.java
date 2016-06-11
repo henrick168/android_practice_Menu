@@ -1,9 +1,14 @@
 package com.example.leo.mypracticemenu;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -53,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_dial:
                 setOptionsDial();
                 break;
+            case R.id.action_notification:
+                sendNotification();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -87,5 +95,47 @@ public class MainActivity extends AppCompatActivity {
         Uri uri = Uri.parse(getString(R.string.uri_dial));
         Intent intent = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(intent);
+    }
+
+    protected void sendNotification() {
+        NotificationManager barManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+//         改用Notification.Builder
+//        Notification barMsg = new Notification(
+//                R.drawable.ic_action_about,
+//                "hello!!",
+//                System.currentTimeMillis()
+//        );
+
+        PendingIntent contentIntent = PendingIntent.getActivity(
+                this,
+                0,
+                new Intent(this, MainActivity.class),
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+
+        // 也可使用 NotificationCompat.Builder
+        Notification.Builder barMsg = new Notification.Builder(this)
+                .setTicker("HELLO")
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(false)
+                        // 加入setStyle() 解決問題: 在Notification中若文字過多，導致文字被畫面裁切的問題。
+                .setStyle(new Notification.BigTextStyle().bigText("訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息"))
+                .setContentTitle("彈出狀態欄訊息")
+                .setContentText("訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息")
+                .setSmallIcon(android.R.drawable.stat_sys_warning)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
+                .setContentIntent(contentIntent);   //若有其他需求(例如點下去換頁、播打電話等)，需要透過PendingIntent來控制。
+//                .setContentIntent(null);  //按下Notification不會有任何事件發生。
+        barManager.notify(0, barMsg.build());
+
+//        setLatestEventInfo(),已於Android 6.0中移除了。
+//        改用Notification.Builder開發
+//        barMsg.setLatestEventInfo(
+//                NewActivity.this,
+//                "彈出狀態欄訊息",
+//                "訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息訊息",
+//                contentIntent
+//        );
     }
 }
