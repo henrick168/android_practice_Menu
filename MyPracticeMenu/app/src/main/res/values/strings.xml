@@ -11,4 +11,6 @@
     <string name="uri_homepage">https://github.com/henrick168/android_practice_Menu</string>
     <string name="uri_railway">geo:25.047192, 121.516981?z=16</string>
     <string name="uri_dial">tel:123</string>
+    <string name="txv_name">姓名</string>
+    <string name="txv_phone">電話</string>
 </resources>
