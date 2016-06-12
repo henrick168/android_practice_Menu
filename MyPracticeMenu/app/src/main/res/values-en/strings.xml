@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyPracticeMenu</string>
+    <string name="action_about">About</string>
+    <string name="action_close">Quit</string>
+    <string name="action_dialog_message">Implementation and Practice Menu and Dialog !!</string>
+    <string name="action_dialog_close">Close</string>
+    <string name="label_homepage">Homepage</string>
+    <string name="action_navi_railway">Navi Taipei Railway Station</string>
+    <string name="action_dial">Dial 123</string>
+    <string name="action_notification">Send Notification</string>
+    <string name="action_preference">Open Preferences</string>
+    <string name="uri_homepage">https://github.com/henrick168/android_practice_Menu</string>
+    <string name="uri_railway">geo:25.047192, 121.516981?z=16</string>
+    <string name="uri_dial">tel:123</string>
+    <string name="txv_name">Name</string>
+    <string name="txv_phone">Phone</string>
+</resources>
