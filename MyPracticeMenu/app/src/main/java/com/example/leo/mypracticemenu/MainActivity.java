@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences settings = getSharedPreferences(PREF, 0);
         String pref_name = settings.getString(PREF_NAME, "");
         String pref_phone = settings.getString(PREF_PHONE, "");
-        edt_name.setTag(pref_name);
-        edt_phone.setTag(pref_phone);
+        edt_name.setText(pref_name);
+        edt_phone.setText(pref_phone);
     }
 }
