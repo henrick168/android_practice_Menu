@@ -17,6 +17,8 @@
         android:showAsAction="ifRoom"/>
     <item android:id="@+id/action_notification"
         android:title="@string/action_notification"/>
+    <item android:id="@+id/action_preference"
+        android:title="@string/action_preference"/>
     <item android:id="@+id/action_close"
         android:icon="@drawable/ic_action_close"
         android:title="@string/action_close"

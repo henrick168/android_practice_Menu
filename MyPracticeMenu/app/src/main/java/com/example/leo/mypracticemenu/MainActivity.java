@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (Debug.On) Log.d(TAG, "onCreate");
         initViews();
-        restorePrefs();
     }
 
     @Override
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (Debug.On) Log.d(TAG, "onResume");
+        restorePrefs();
     }
 
     @Override
@@ -110,6 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.action_notification:
                 sendNotification();
+                break;
+            case R.id.action_preference:
+                setOptionsPrefs();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -209,5 +212,9 @@ public class MainActivity extends AppCompatActivity {
         edt_phone.setText(pref_phone);
         if (!"".equals(pref_name)) edt_phone.requestFocus();
         if (!"".equals(pref_phone)) edt_name.requestFocus();
+    }
+
+    protected void setOptionsPrefs() {
+        startActivity(new Intent(MainActivity.this, Pref.class));
     }
 }

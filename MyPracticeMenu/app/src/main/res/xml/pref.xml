@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:key="PROFILE_NAME"
+        android:title="@string/txv_name"
+        android:summary="@string/txv_name"/>
+    <EditTextPreference android:key="PROFILE_PHONE"
+        android:title="@string/txv_phone"
+        android:summary="@string/txv_phone"/>
+</PreferenceScreen>

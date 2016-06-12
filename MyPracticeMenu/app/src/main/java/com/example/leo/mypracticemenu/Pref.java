@@ -2,6 +2,7 @@ package com.example.leo.mypracticemenu;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
@@ -12,6 +13,12 @@ public class Pref extends PreferenceActivity {
     public static final String PREF = "PROFILE";
     public static final String PREF_NAME = "PROFILE_NAME";
     public static final String PREF_PHONE = "PROFILE_PHONE";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.pref);
+    }
 
     public static String getName(Context context) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
