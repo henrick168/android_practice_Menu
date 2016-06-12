@@ -59,12 +59,14 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         if (debug.On) Log.d(TAG, "onPause");
 
+
         // Save user preference. Use Editor object to make changes.
         SharedPreferences settings = getSharedPreferences(PREF, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(PREF_NAME, edt_name.getText().toString());
-        editor.putString(PREF_PHONE, edt_phone.getText().toString());
-        editor.commit();
+        // SharedPreference Optimize
+        settings.edit()
+                .putString(PREF_NAME, edt_name.getText().toString())
+                .putString(PREF_PHONE, edt_phone.getText().toString())
+                .commit();
     }
 
     @Override
